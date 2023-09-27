@@ -17,12 +17,14 @@
 package com.example.android.navigationadvancedsample.listscreen
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.android.navigationadvancedsample.R
+import com.example.android.navigationadvancedsample.UserProfile_TAG
 import com.example.android.navigationadvancedsample.listscreen.MyAdapter.Companion.USERNAME_KEY
 
 
@@ -31,9 +33,13 @@ import com.example.android.navigationadvancedsample.listscreen.MyAdapter.Compani
  */
 class UserProfile : Fragment() {
 
+    init {
+        Log.i(UserProfile_TAG, "objek dibuat")
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-
+        Log.i(UserProfile_TAG, "UserProfile.onCreateView()")
 
         val view = inflater.inflate(R.layout.fragment_user_profile, container, false)
 

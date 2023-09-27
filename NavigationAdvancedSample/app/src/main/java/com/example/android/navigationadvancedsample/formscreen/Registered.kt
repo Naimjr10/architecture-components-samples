@@ -17,19 +17,27 @@
 package com.example.android.navigationadvancedsample.formscreen
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.android.navigationadvancedsample.R
+import com.example.android.navigationadvancedsample.Registered_TAG
 
 /**
  * Shows "Done".
  */
 class Registered : Fragment() {
+
+    init {
+        Log.i(Registered_TAG, "objek dibuat")
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
+        Log.i(Registered_TAG, "Registered.onCreateView()")
 
         return inflater.inflate(R.layout.fragment_registered, container, false)
     }

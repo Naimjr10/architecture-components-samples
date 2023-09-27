@@ -17,6 +17,7 @@
 package com.example.android.navigationadvancedsample.listscreen
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +27,9 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.android.navigationadvancedsample.Leaderboard_TAG
+import com.example.android.navigationadvancedsample.MyAdapter_TAG
+import com.example.android.navigationadvancedsample.MyAdapter_ViewHolder_TAG
 import com.example.android.navigationadvancedsample.R
 
 /**
@@ -33,8 +37,13 @@ import com.example.android.navigationadvancedsample.R
  */
 class Leaderboard : Fragment() {
 
+    init {
+        Log.i(Leaderboard_TAG, "objek dibuat")
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        Log.i(Leaderboard_TAG, "Leaderboard.onCreateView()")
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_leaderboard, container, false)
 
@@ -57,16 +66,23 @@ class Leaderboard : Fragment() {
 class MyAdapter(private val myDataset: Array<String>) :
     RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
+    init {
+        Log.i(MyAdapter_TAG, "objek dibuat")
+    }
+
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder.
     // Each data item is just a string in this case that is shown in a TextView.
     class ViewHolder(val item: View) : RecyclerView.ViewHolder(item)
-
+    init {
+        Log.i(MyAdapter_ViewHolder_TAG, "objek dibuat")
+    }
 
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): ViewHolder {
+        Log.i(MyAdapter_TAG, "MyAdapter.onCreateViewHolder()")
         // create a new view
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.list_view_item, parent, false)
@@ -77,6 +93,7 @@ class MyAdapter(private val myDataset: Array<String>) :
 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        Log.i(MyAdapter_TAG, "MyAdapter.onBindViewHolder()")
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.item.findViewById<TextView>(R.id.user_name_text).text = myDataset[position]
@@ -94,7 +111,10 @@ class MyAdapter(private val myDataset: Array<String>) :
     }
 
     // Return the size of your dataset (invoked by the layout manager)
-    override fun getItemCount() = myDataset.size
+    override fun getItemCount(): Int {
+        Log.i(MyAdapter_TAG, "MyAdapter.getItemCount()")
+        return myDataset.size
+    }
 
     companion object {
         const val USERNAME_KEY = "userName"

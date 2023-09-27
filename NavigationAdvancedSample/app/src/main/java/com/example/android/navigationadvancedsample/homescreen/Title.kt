@@ -17,6 +17,7 @@
 package com.example.android.navigationadvancedsample.homescreen
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,14 +25,22 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.android.navigationadvancedsample.R
+import com.example.android.navigationadvancedsample.Title_TAG
 
 /**
  * Shows the main title screen with a button that navigates to [About].
  */
 class Title : Fragment() {
+
+    init {
+        Log.i(Title_TAG, "objek dibuat")
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
+        Log.i(Title_TAG, "Title.onCreateView()")
+
         val view = inflater.inflate(R.layout.fragment_title, container, false)
 
         view.findViewById<Button>(R.id.about_btn).setOnClickListener {

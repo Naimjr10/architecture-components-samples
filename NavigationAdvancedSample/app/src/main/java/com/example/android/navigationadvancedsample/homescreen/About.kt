@@ -17,19 +17,28 @@
 package com.example.android.navigationadvancedsample.homescreen
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.android.navigationadvancedsample.About_TAG
 import com.example.android.navigationadvancedsample.R
+import com.example.android.navigationadvancedsample.UserProfile_TAG
 
 /**
  * Shows "About"
  */
 class About : Fragment() {
+
+    init {
+        Log.i(About_TAG, "objek dibuat")
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
+        Log.i(About_TAG, "About.onCreateView()")
 
         return inflater.inflate(R.layout.fragment_about, container, false)
     }

@@ -17,6 +17,7 @@
 package com.example.android.navigationadvancedsample.formscreen
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.android.navigationadvancedsample.R
+import com.example.android.navigationadvancedsample.Register_TAG
 
 
 /**
@@ -31,8 +33,14 @@ import com.example.android.navigationadvancedsample.R
  */
 class Register : Fragment() {
 
+    init {
+        Log.i(Register_TAG, "objek dibuat")
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        Log.i(Register_TAG, "Register.onCreateView()")
+
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_register, container, false)
 
